@@ -24,6 +24,28 @@ class MainActivity : AppCompatActivity() ,
             }
 
         })
+        txv.setOnLongClickListener(object:View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+                counter += 2
+
+                txv.text=counter.toString()
+               return true
+            }
+
+        })
+        txvvb.setOnTouchListener(object:View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                //txvvb.text="觸控測試"
+                if (event?.action == MotionEvent.ACTION_DOWN){
+                    txvvb.text="手指壓下"
+                }
+                else if (event?.action == MotionEvent.ACTION_UP){
+                    txvvb.text="手指彈開"
+                }
+                return true
+            }
+
+        })
     }
 
     fun AddOne(v: View){
